@@ -38,7 +38,7 @@ var O365 = [
 				MX("@", 0, "thefathacker-tech.mail.protection.outlook.com.")
 		];
 // FORWARD DOMAINS
-D('thefathacker.tech', REG_NONE, DnsProvider(DNS_BIND), NSSERVERS, SPF, O365
+D('thefathacker.tech', REG_NONE, DnsProvider(DNS_BIND), NSSERVERS, SPF, O365,
 			A('dc-apv-1', '172.31.16.3'),
 			A('dc-apv-2', '172.31.17.3'),
 			A('ns-apv-1', '172.31.16.2'),
