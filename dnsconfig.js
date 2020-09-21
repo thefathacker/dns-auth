@@ -37,16 +37,22 @@ var O365 = [
 				SRV("_sipfederationtls._tcp", 10, 1, 5061, "sipfed.online.lync.com."),
 				MX("@", 0, "thefathacker-tech.mail.protection.outlook.com.")
 		];
+// STUB LOOKUPS
+var STUB_PRD = [
+			NS('prd', 'dc-apv-1.prd.thefathacker.tech.'),
+			NS('prd', 'dc-apv-2.prd.thefathacker.tech.'),
+			A('dc-apv-1.prd', '172.31.16.3'),
+			A('dc-apv-2.prd', '172.31.17.3'),
+			AAAA('dc-apv-1.prd', 'fdff:6861:7873:1f10::3'),
+			AAAA('dc-apv-2.prd', 'fdff:6861:7873:1f11::3')
+		];
+
 // FORWARD DOMAINS
-D('thefathacker.tech', REG_NONE, DnsProvider(DNS_BIND), NSSERVERS, SPF, O365,
-			A('dc-apv-1', '172.31.16.3'),
-			A('dc-apv-2', '172.31.17.3'),
+D('thefathacker.tech', REG_NONE, DnsProvider(DNS_BIND), NSSERVERS, SPF, O365, STUB_PRD,
 			A('ns-apv-1', '172.31.16.2'),
 			A('ns-apv-2', '172.31.17.2'),
 			A('resolv-apv-1', '172.31.16.1'),
 			A('resolv-apv-2', '172.31.17.1'),
-			AAAA('dc-apv-1', 'fdff:6861:7873:1f10::3'),
-			AAAA('dc-apv-2', 'fdff:6861:7873:1f11::3'),
 			AAAA('ns-apv-1', 'fdff:6861:7873:1f10::2'),
 			AAAA('ns-apv-2', 'fdff:6861:7873:1f11::2'),
 			AAAA('resolv-apv-1', 'fdff:6861:7873:1f10::1'),
