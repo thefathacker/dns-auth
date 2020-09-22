@@ -16,3 +16,9 @@ sudo systemctl restart bind9
 ```
 
 ## Run DNSControl
+```
+cd /etc/bind
+sudo git pull https://github.com/thefathacker/dns-auth
+sudo /root/go/bin/dnscontrol push
+sudo rndc reload
+```
