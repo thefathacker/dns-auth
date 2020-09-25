@@ -51,10 +51,12 @@ var STUB_PRD = [
 D('thefathacker.tech', REG_NONE, DnsProvider(DNS_BIND), NSSERVERS, SPF, O365, STUB_PRD,
 			A('ns-apv-1', '172.31.16.2'),
 			A('ns-apv-2', '172.31.17.2'),
+			A('psql-apv-1', '172.31.32.1'),
 			A('resolv-apv-1', '172.31.16.1'),
 			A('resolv-apv-2', '172.31.17.1'),
 			AAAA('ns-apv-1', 'fdff:6861:7873:1f10::2'),
 			AAAA('ns-apv-2', 'fdff:6861:7873:1f11::2'),
+			AAAA('psql-apv-1', 'fdff:6861:7873:1f20::1'),
 			AAAA('resolv-apv-1', 'fdff:6861:7873:1f10::1'),
 			AAAA('resolv-apv-2', 'fdff:6861:7873:1f11::1')
 		);
@@ -64,14 +66,12 @@ D(REV('172.31.16.0/24'), REG_NONE, DnsProvider(DNS_BIND), NSSERVERS,
 			PTR('172.31.16.1', 'resolv-apv-1.thefathacker.tech.'),
 			PTR('172.31.16.2', 'ns-apv-1.thefathacker.tech.'),
 			PTR('172.31.16.3', 'dc-apv-1.thefathacker.tech.'),
-			PTR('172.31.16.4', 'dfs-apv-1.thefathacker.tech.'),
 			PTR('172.31.16.254', 'rb3011-app-1.thefathacker.tech.')
 		);
 D(REV('fdff:6861:7873:1f10::/64'), REG_NONE, DnsProvider(DNS_BIND), NSSERVERS,
 			PTR('fdff:6861:7873:1f10::1', 'resolv-apv-1.thefathacker.tech.'),
 			PTR('fdff:6861:7873:1f10::2', 'ns-apv-1.thefathacker.tech.'),
 			PTR('fdff:6861:7873:1f10::3', 'dc-apv-1.thefathacker.tech.'),
-			PTR('fdff:6861:7873:1f10::4', 'dfs-apv-1.thefathacker.tech.'),
 			PTR('fdff:6861:7873:1f10::fe', 'rb3011-app-1.thefathacker.tech.')
 		);
 //Alpha - Production - Network Operations - Secondary
@@ -79,13 +79,20 @@ D(REV('172.31.17.0/24'), REG_NONE, DnsProvider(DNS_BIND), NSSERVERS,
 			PTR('172.31.17.1', 'resolv-apv-2.thefathacker.tech.'),
 			PTR('172.31.17.2', 'ns-apv-2.thefathacker.tech.'),
 			PTR('172.31.17.3', 'dc-apv-2.thefathacker.tech.'),
-			PTR('172.31.17.4', 'dfs-apv-2.thefathacker.tech.'),
 			PTR('172.31.17.254', 'rb3011-app-1.thefathacker.tech.')
 		);
 D(REV('fdff:6861:7873:1f11::/64'), REG_NONE, DnsProvider(DNS_BIND), NSSERVERS,
 			PTR('fdff:6861:7873:1f11::1', 'resolv-apv-2.thefathacker.tech.'),
 			PTR('fdff:6861:7873:1f11::2', 'ns-apv-2.thefathacker.tech.'),
 			PTR('fdff:6861:7873:1f11::3', 'dc-apv-2.thefathacker.tech.'),
-			PTR('fdff:6861:7873:1f11::4', 'dfs-apv-2.thefathacker.tech.'),
 			PTR('fdff:6861:7873:1f11::fe', 'rb3011-app-1.thefathacker.tech.')
+		);
+//Alpha - Production - Databases
+D(REV('172.31.32.0/24'), REG_NONE, DnsProvider(DNS_BIND), NSSERVERS,
+			PTR('172.31.32.1', 'psql-apv-1.thefathacker.tech.'),
+			PTR('172.31.32.254', 'rb3011-app-1.thefathacker.tech.')
+		);
+D(REV('fdff:6861:7873:1f20::/64'), REG_NONE, DnsProvider(DNS_BIND), NSSERVERS,
+			PTR('fdff:6861:7873:1f20::1', 'psql-apv-1.thefathacker.tech.'),
+			PTR('fdff:6861:7873:1f20::fe', 'rb3011-app-1.thefathacker.tech.')
 		);
