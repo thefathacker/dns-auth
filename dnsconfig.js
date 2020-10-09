@@ -52,11 +52,15 @@ D('thefathacker.tech', REG_NONE, DnsProvider(DNS_BIND), NSSERVERS, SPF, O365, ST
 			A('ns-apv-1', '172.31.16.2'),
 			A('ns-apv-2', '172.31.17.2'),
 			A('psql-apv-1', '172.31.32.1'),
+			A('netbox-apv-1', '172.31.33.1'),
+			A('nas-apv-1', '172.31.33.2'),
 			A('resolv-apv-1', '172.31.16.1'),
 			A('resolv-apv-2', '172.31.17.1'),
 			AAAA('ns-apv-1', 'fdff:6861:7873:1f10::2'),
 			AAAA('ns-apv-2', 'fdff:6861:7873:1f11::2'),
 			AAAA('psql-apv-1', 'fdff:6861:7873:1f20::1'),
+			AAAA('netbox-apv-1', 'fdff:6861:7873:1f21::1'),
+			AAAA('nas-apv-1', 'fdff:6861:7873:1f21::2'),
 			AAAA('resolv-apv-1', 'fdff:6861:7873:1f10::1'),
 			AAAA('resolv-apv-2', 'fdff:6861:7873:1f11::1')
 		);
@@ -87,7 +91,7 @@ D(REV('fdff:6861:7873:1f11::/64'), REG_NONE, DnsProvider(DNS_BIND), NSSERVERS,
 			PTR('fdff:6861:7873:1f11::3', 'dc-apv-2.thefathacker.tech.'),
 			PTR('fdff:6861:7873:1f11::fe', 'rb3011-app-1.thefathacker.tech.')
 		);
-//Alpha - Production - Databases
+//Alpha - Production - Database Virtual Machines
 D(REV('172.31.32.0/24'), REG_NONE, DnsProvider(DNS_BIND), NSSERVERS,
 			PTR('172.31.32.1', 'psql-apv-1.thefathacker.tech.'),
 			PTR('172.31.32.254', 'rb3011-app-1.thefathacker.tech.')
@@ -95,4 +99,15 @@ D(REV('172.31.32.0/24'), REG_NONE, DnsProvider(DNS_BIND), NSSERVERS,
 D(REV('fdff:6861:7873:1f20::/64'), REG_NONE, DnsProvider(DNS_BIND), NSSERVERS,
 			PTR('fdff:6861:7873:1f20::1', 'psql-apv-1.thefathacker.tech.'),
 			PTR('fdff:6861:7873:1f20::fe', 'rb3011-app-1.thefathacker.tech.')
+		);
+//Alpha - Production - Application Virtual Machines
+D(REV('172.31.33.0/24'), REG_NONE, DnsProvider(DNS_BIND), NSSERVERS,
+			PTR('172.31.33.1', 'netbox-apv-1.thefathacker.tech.'),
+			PTR('172.31.33.2', 'nas-apv-1.thefathacker.tech.'),
+			PTR('172.31.33.254', 'rb3011-app-1.thefathacker.tech.')
+		);
+D(REV('fdff:6861:7873:1f21::/64'), REG_NONE, DnsProvider(DNS_BIND), NSSERVERS,
+			PTR('fdff:6861:7873:1f21::1', 'netbox-apv-1.thefathacker.tech.'),
+			PTR('fdff:6861:7873:1f21::2', 'nas-apv-1.thefathacker.tech.'),
+			PTR('fdff:6861:7873:1f21::fe', 'rb3011-app-1.thefathacker.tech.')
 		);
