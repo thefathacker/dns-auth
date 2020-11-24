@@ -22,4 +22,7 @@ sudo git pull https://github.com/thefathacker/dns-auth
 sudo /root/go/bin/dnscontrol push
 sudo rndc reload
 sudo systemctl restart bind9.service (Optional)
+
+
+sudo unzip -o /home/nsuser/zones.zip -d /var/cache/bind/
 ```
